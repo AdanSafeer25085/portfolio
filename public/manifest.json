@@ -1,0 +1,24 @@
+{
+  "name": "Adan - Full Stack Developer Portfolio",
+  "short_name": "Adan Portfolio",
+  "description": "Full Stack Developer passionate about creating innovative digital solutions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon",
+      "purpose": "any"
+    }
+  ]
+}
