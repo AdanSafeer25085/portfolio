@@ -10,14 +10,14 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://your-portfolio-domain.com' : 'http://localhost:3000'),
+  metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
   title: {
     default: 'Adan - Full Stack Developer',
     template: '%s | Adan - Full Stack Developer'
   },
   description: 'Full Stack Developer passionate about creating innovative digital solutions and building user-centric applications with React, Node.js, and modern web technologies.',
   keywords: ['full stack developer', 'web developer', 'react developer', 'node.js developer', 'javascript', 'typescript', 'portfolio', 'software engineer'],
-  authors: [{ name: 'Adan', url: process.env.NODE_ENV === 'production' ? 'https://your-portfolio-domain.com' : 'http://localhost:3000' }],
+  authors: [{ name: 'Adan', url: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000' }],
   creator: 'Adan',
   publisher: 'Adan',
   formatDetection: {
@@ -28,13 +28,13 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: process.env.NODE_ENV === 'production' ? 'https://your-portfolio-domain.com' : 'http://localhost:3000',
+    url: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000',
     title: 'Adan - Full Stack Developer',
     description: 'Full Stack Developer passionate about creating innovative digital solutions and building user-centric applications.',
     siteName: 'Adan Portfolio',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/Project.jpg',
         width: 1200,
         height: 630,
         alt: 'Adan - Full Stack Developer Portfolio'
@@ -45,7 +45,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Adan - Full Stack Developer',
     description: 'Full Stack Developer passionate about creating innovative digital solutions and building user-centric applications.',
-    images: ['/og-image.jpg'],
+    images: ['/Project.jpg'],
   },
   robots: {
     index: true,

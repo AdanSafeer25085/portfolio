@@ -4,7 +4,7 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "functions": {
-    "src/app/api/**/*.ts": {
+    "src/app/api/**/*.js": {
       "runtime": "nodejs18.x"
     }
   }
