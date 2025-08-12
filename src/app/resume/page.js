@@ -108,8 +108,8 @@ export default function Resume() {
               <div className="project-item">
                 <h3 className="project-title">
                   <ExternalLink size={14} className="inline-icon" />
-                  <a href="https://landing-page-sepia-zeta-11.vercel.app" target="_blank" rel="noopener noreferrer">
-                    landing-page-sepia-zeta-11.vercel.app
+                  <a href="https://landing-pag-three.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    https://landing-pag-three.vercel.app/
                   </a>
                 </h3>
               </div>
