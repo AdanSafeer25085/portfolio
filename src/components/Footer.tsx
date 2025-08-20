@@ -20,12 +20,12 @@ const Footer = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         onClick={scrollToTop}
-        className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 to-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:shadow-lg hover:scale-110 transition-all duration-200"
+        className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 to-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:shadow-lg hover:scale-110 transition-all duration-200" style={{ zIndex: 2 }}
       >
         <ArrowUp size={20} />
       </motion.button>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8" style={{zIndex: 1}}>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <motion.div

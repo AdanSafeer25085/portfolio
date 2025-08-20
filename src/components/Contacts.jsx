@@ -25,6 +25,24 @@ const Contacts = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    console.log('Form submission started');
+    console.log('Form data:', formData);
+    
+    // Validate all fields are filled
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      console.error('Validation failed - empty fields:', {
+        name: !formData.name,
+        email: !formData.email,
+        subject: !formData.subject,
+        message: !formData.message
+      });
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 5000);
+      return;
+    }
+    
+    console.log('Validation passed, sending request...');
     setIsSubmitting(true);
     
     try {
@@ -36,16 +54,37 @@ const Contacts = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      console.log('Response received:');
+      console.log('- Status:', response.status);
+      console.log('- OK:', response.ok);
+      console.log('- Headers:', response.headers);
+      
+      let data;
+      try {
+        const text = await response.text();
+        console.log('- Raw text:', text);
+        data = text ? JSON.parse(text) : {};
+      } catch (parseError) {
+        console.error('Failed to parse response:', parseError);
+        data = {};
+      }
+      console.log('- Parsed data:', data);
 
-      if (response.ok && data.success) {
+      if (response.ok && data && data.success) {
+        console.log('Success: Form submitted successfully');
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        setSubmitStatus('error');
+        // Handle validation or other errors
+        const errorMessage = data?.message || 'Failed to send message';
+        console.error('Error: Form submission failed:', errorMessage);
+        console.error('Full error data:', data);
+        
+        // Set error message for display
+        setSubmitStatus({ type: 'error', message: errorMessage });
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error: Exception during submission:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -258,7 +297,12 @@ const Contacts = () => {
                 )}
                 {submitStatus === 'error' && (
                   <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-center backdrop-blur-sm">
-                    ✗ Failed to send message. Please try again or email me directly.
+                    ✗ Failed to send message. Please ensure all fields are filled correctly and try again.
+                  </div>
+                )}
+                {submitStatus && typeof submitStatus === 'object' && submitStatus.type === 'error' && (
+                  <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-center backdrop-blur-sm">
+                    ✗ {submitStatus.message}
                   </div>
                 )}
               </form>
