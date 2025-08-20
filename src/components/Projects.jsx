@@ -45,15 +45,17 @@ const Projects = memo(() => {
                   
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition-all duration-300">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white/10 backdrop-blur-sm rounded-xl text-white hover:bg-white/20 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
-                      aria-label={`View ${project.title} source code on GitHub`}
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 bg-white/10 backdrop-blur-sm rounded-xl text-white hover:bg-white/20 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+                        aria-label={`View ${project.title} source code on GitHub`}
+                      >
+                        <Github className="w-5 h-5" />
+                      </a>
+                    )}
                     <a
                       href={project.liveUrl}
                       target="_blank"
@@ -104,22 +106,12 @@ const Projects = memo(() => {
                   </div>
 
                   {/* Project Links */}
-                  <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-500 hover:text-purple-400 transition-colors group/link focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded px-2 py-1"
-                      aria-label={`View ${project.title} source code`}
-                    >
-                      <Github className="w-4 h-4" aria-hidden="true" />
-                      <span className="text-sm font-medium">View Code</span>
-                    </a>
+                  <div className="flex items-center justify-center pt-4 border-t border-white/5">
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-500 hover:text-purple-400 transition-colors group/link focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded px-2 py-1"
+                      className="flex items-center gap-2 text-gray-500 hover:text-purple-400 transition-colors group/link focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded px-3 py-2"
                       aria-label={`View ${project.title} live demo`}
                     >
                       <span className="text-sm font-medium">Live Demo</span>
