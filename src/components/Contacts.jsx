@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 import { personalInfo } from '@/data/portfolio.js';
 
 const Contacts = () => {
@@ -26,15 +28,28 @@ const Contacts = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 3000);
+      setTimeout(() => setSubmitStatus(null), 5000);
     }
   };
 
@@ -122,7 +137,7 @@ const Contacts = () => {
                   className="w-12 h-12 bg-black/50 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-purple-600/20 border border-white/5 hover:border-purple-500/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
                   aria-label="Visit GitHub profile"
                 >
-                  <Github className="w-5 h-5" />
+                  <FaGithub className="w-5 h-5" />
                 </a>
                 <a
                   href={personalInfo.social.linkedin}
@@ -131,16 +146,16 @@ const Contacts = () => {
                   className="w-12 h-12 bg-black/50 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600/20 border border-white/5 hover:border-blue-500/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                   aria-label="Visit LinkedIn profile"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <FaLinkedin className="w-5 h-5" />
                 </a>
                 <a
-                  href={personalInfo.social.twitter}
+                  href={personalInfo.social.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-black/50 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-sky-600/20 border border-white/5 hover:border-sky-500/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50"
-                  aria-label="Visit Twitter profile"
+                  className="w-12 h-12 bg-black/50 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-green-600/20 border border-white/5 hover:border-green-500/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                  aria-label="Chat on WhatsApp"
                 >
-                  <Twitter className="w-5 h-5" />
+                  <FaWhatsapp className="w-5 h-5" />
                 </a>
               </div>
             </div>

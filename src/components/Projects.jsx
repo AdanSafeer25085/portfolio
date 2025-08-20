@@ -1,6 +1,7 @@
 "use client";
 
-import { ExternalLink, Github, Code2, Folder } from 'lucide-react';
+import { ExternalLink, Code2, Folder } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 import { projects } from '@/data/portfolio.js';
 import { memo } from 'react';
 
@@ -38,10 +39,18 @@ const Projects = memo(() => {
               <div className="relative bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-white/5 overflow-hidden hover:border-white/10 transition-all duration-300">
                 {/* Project Image/Preview */}
                 <div className="relative h-48 bg-gradient-to-br from-purple-600/20 to-pink-600/20 overflow-hidden">
-                  {/* Project Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Code2 className="w-16 h-16 text-white/20" />
-                  </div>
+                  {/* Project Image */}
+                  {project.imageUrl ? (
+                    <img 
+                      src={project.imageUrl} 
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Code2 className="w-16 h-16 text-white/20" />
+                    </div>
+                  )}
                   
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition-all duration-300">
@@ -53,7 +62,7 @@ const Projects = memo(() => {
                         className="p-3 bg-white/10 backdrop-blur-sm rounded-xl text-white hover:bg-white/20 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
                         aria-label={`View ${project.title} source code on GitHub`}
                       >
-                        <Github className="w-5 h-5" />
+                        <FaGithub className="w-5 h-5" />
                       </a>
                     )}
                     <a
@@ -127,13 +136,13 @@ const Projects = memo(() => {
         {/* View More Button */}
         <div className="text-center mt-16">
           <a
-            href="https://github.com/adan-rajpoot"
+            href="https://github.com/AdanSafeer25085"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary inline-flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
             aria-label="View all projects on GitHub"
           >
-            <Github className="w-5 h-5 group-hover:rotate-12 transition-transform" aria-hidden="true" />
+            <FaGithub className="w-5 h-5 group-hover:rotate-12 transition-transform" aria-hidden="true" />
             View All Projects on GitHub
           </a>
         </div>
