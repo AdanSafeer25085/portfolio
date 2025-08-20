@@ -89,7 +89,13 @@ export default function Resume() {
                   <h3>Node.js</h3>
                 </div>
                 <div className="skill-category">
+                  <h3>JavaScript</h3>
+                </div>
+                <div className="skill-category">
                   <h3>HTML5</h3>
+                </div>
+                <div className="skill-category">
+                  <h3>Supabase (db)</h3>
                 </div>
               </div>
             </section>
@@ -101,17 +107,37 @@ export default function Resume() {
                 <h3 className="project-title">
                   <ExternalLink size={14} className="inline-icon" />
                   <a href="https://shop-steel-six.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    https://shop-steel-six.vercel.app/
+                    Ecommerce Shop - https://shop-steel-six.vercel.app/
                   </a>
                 </h3>
+                <p className="project-description">Modern shop built with Next.js and Tailwind CSS</p>
+              </div>
+              <div className="project-item">
+                <h3 className="project-title">
+                  <ExternalLink size={14} className="inline-icon" />
+                  <a href="https://weather-site-theta-beige.vercel.app" target="_blank" rel="noopener noreferrer">
+                    Weather Dashboard - https://weather-site-theta-beige.vercel.app
+                  </a>
+                </h3>
+                <p className="project-description">Real-time weather monitoring with forecasts</p>
+              </div>
+              <div className="project-item">
+                <h3 className="project-title">
+                  <ExternalLink size={14} className="inline-icon" />
+                  <a href="https://blood-donation-flame.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    Blood Donation Platform - https://blood-donation-flame.vercel.app/
+                  </a>
+                </h3>
+                <p className="project-description">Property listing and management system</p>
               </div>
               <div className="project-item">
                 <h3 className="project-title">
                   <ExternalLink size={14} className="inline-icon" />
                   <a href="https://landing-pag-three.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    https://landing-pag-three.vercel.app/
+                    Landing Page - https://landing-pag-three.vercel.app/
                   </a>
                 </h3>
+                <p className="project-description">Just for practise application</p>
               </div>
             </section>
 
@@ -149,7 +175,7 @@ export default function Resume() {
               <div className="education-item">
                 <h3 className="degree">BS SOFTWARE ENGINEERING</h3>
                 <p className="school">Comsats University</p>
-                <p className="location">Khairpur Campus</p>
+                <p className="location">Dhamtor Campus</p>
                 <p className="date">• 01/04/2023 - continue</p>
                 <p className="gpa">GPA: 2.9 / 4.0</p>
               </div>
@@ -202,7 +228,7 @@ export default function Resume() {
                 <div className="social-item">
                   <Github size={16} className="social-icon" />
                   <span className="social-label">GitHub</span>
-                  <a href="https://github.com/adan-rajpoot" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/AdanSafeer25085" target="_blank" rel="noopener noreferrer">
                     github.com/adan-rajpoot
                   </a>
                 </div>
@@ -216,7 +242,7 @@ export default function Resume() {
                 <div className="social-item">
                   <div className="linkedin-icon">in</div>
                   <span className="social-label">LinkedIn</span>
-                  <a href="https://linkedin.com/in/adan-safeer-7a8757342" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/adan-safeer-7a8757342/" target="_blank" rel="noopener noreferrer">
                     linkedin.com/in/adan-safeer-7a8757342
                   </a>
                 </div>

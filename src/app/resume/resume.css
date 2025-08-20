@@ -187,6 +187,13 @@
   text-decoration: underline;
 }
 
+.project-description {
+  font-size: 10px;
+  color: #666;
+  margin: 2px 0 8px 20px;
+  font-style: italic;
+}
+
 .inline-icon {
   color: #0066cc;
   flex-shrink: 0;
