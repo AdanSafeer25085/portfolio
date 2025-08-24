@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, ArrowUp } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
 
 const Footer = () => {
@@ -58,14 +58,6 @@ const Footer = () => {
                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-colors duration-200 hover:text-blue-400"
               >
                 <Linkedin size={18} />
-              </a>
-              <a
-                href={personalInfo.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-colors duration-200 hover:text-blue-400"
-              >
-                <Twitter size={18} />
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
